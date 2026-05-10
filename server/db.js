@@ -9,10 +9,9 @@ const connectionString =
 
 export const pool = new Pool({
   connectionString,
-  ssl:
-    process.env.PGSSL === "true" || connectionString.includes("render.com")
-      ? { rejectUnauthorized: false }
-      : false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 function scryptAsync(value, salt) {
