@@ -226,7 +226,7 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         "/db-api": {
-          target: env.VITE_DB_API_URL || "http://127.0.0.1:4000",
+          target: env.VITE_API_URL || "http://127.0.0.1:4000",
           changeOrigin: true,
         },
       },

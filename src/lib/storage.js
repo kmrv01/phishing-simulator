@@ -24,8 +24,10 @@ export function formatDate(value) {
   return new Date(value).toLocaleString("ru-RU");
 }
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 async function apiRequest(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     headers: {
       "Content-Type": "application/json",
       ...(options.headers || {}),
